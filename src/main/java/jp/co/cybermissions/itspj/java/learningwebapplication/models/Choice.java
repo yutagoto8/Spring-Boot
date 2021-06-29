@@ -25,7 +25,6 @@ public class Choice {
     @Size(max = 200)
     private String choiceText;
 
-    @NotBlank
     private boolean correct;
 
     @ManyToOne

@@ -1,5 +1,7 @@
 package jp.co.cybermissions.itspj.java.learningwebapplication.controllers;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -67,17 +69,36 @@ public class TeacherController {
 
         Choice cho = new Choice();
         cho.setChoiceText(form.getChoiceText1());
-        cho.setChoiceText(form.getChoiceText2());
-        cho.setChoiceText(form.getChoiceText3());
-        cho.setChoiceText(form.getChoiceText4());
-        cho.setQuestion(newQuestion);
         cho.setCorrect(form.isCorrect1());
-        cho.setCorrect(form.isCorrect2());
-        cho.setCorrect(form.isCorrect3());
-        cho.setCorrect(form.isCorrect4());
+        cho.setQuestion(newQuestion);
         choiceRepository.save(cho);
 
+        cho = new Choice();
+        cho.setChoiceText(form.getChoiceText2());
+        cho.setCorrect(form.isCorrect2());
+        cho.setQuestion(newQuestion);
+        choiceRepository.save(cho);
+
+        cho = new Choice();
+        cho.setChoiceText(form.getChoiceText3());
+        cho.setCorrect(form.isCorrect3());
+        cho.setQuestion(newQuestion);
+        choiceRepository.save(cho);
+
+        cho = new Choice();
+        cho.setChoiceText(form.getChoiceText4());
+        cho.setCorrect(form.isCorrect4());
+        cho.setQuestion(newQuestion);
+        choiceRepository.save(cho);
+        
         return "teacher/home";
+    }
+
+    @GetMapping("/list")
+    public String list(Model model) {
+        model.addAttribute("list", qusetionRepository.findAll());
+        return "teacher/list";
+
     }
     
 }

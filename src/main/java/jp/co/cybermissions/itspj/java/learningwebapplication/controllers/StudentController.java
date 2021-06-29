@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-// import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.CategoryRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.ChoiceRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.QusetionRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.StudentRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.models.Choice;
 import jp.co.cybermissions.itspj.java.learningwebapplication.models.Question;
-import jp.co.cybermissions.itspj.java.learningwebapplication.service.RandomQuestionService;
 import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/student")
@@ -28,8 +27,6 @@ public class StudentController {
     
     private final QusetionRepository qRepository;
 
-    // private final CategoryRepository categoryRepository;
-
     private final ChoiceRepository choiceRepository;
 
 
@@ -39,33 +36,12 @@ public class StudentController {
         return "student/home";
     }
 
-    // @GetMapping("/category")
-    // public String questionCategory(Model model) {
-    //     model.addAttribute("category", categoryRepository.findAll());
-    //     return "student/category";
-    // }
-
-    // @PostMapping("/category/{id}/sellect")
-    // public String sellect(@RequestParam(name = "category") int categoryId,@PathVariable int id, Model model ) {
-    //     model.addAttribute("question", qRepository.findByCategory(categoryId));
-    //     return "redirect:/student/question/{id}";
-    // }
-
     @GetMapping("/question/{id}")
     public String question(@PathVariable int id,Model model) {
         model.addAttribute("question", qRepository.findById(id).get());
 
         return "student/question";
     }
-
-    // public String choiceCorrect() {
-    // List<Choice> choices;
-    // for(Choice c : choices) {
-    //     if(c.isCorrect()) {
-    //         return c.getChoiceText();
-    //     }
-    // }
-    // }
 
     @PatchMapping("/question/{id}")
     public String choice(@RequestParam(name = "choice") int choiceId, @PathVariable int id,Model model) {
@@ -77,14 +53,5 @@ public class StudentController {
         return "student/question";  
 
     }
-
-    RandomQuestionService random;
-
-    @PostMapping("/question/{id}")
-    public String randomQuestion(@PathVariable int id, @ModelAttribute Question question, Model model) {
-        id = random.RandomQuestion();
-        return "student/question";
-    }
-    
 
 }

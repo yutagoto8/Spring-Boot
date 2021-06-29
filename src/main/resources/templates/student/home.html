@@ -60,7 +60,7 @@
         <!-- <li th:href="@{/student/question/{id}(id=${question.id})}">ランダムな出題</li> -->
         <!-- <li><a th:href="@{/student/category}">出題分野を選択して出題</a></li> -->
         <li>
-          <form th:method="POST" th:action="@{/student/question/{id}(id=*{id})}">
+          <form th:method="POST" th:action="@{/student/question}">
             <input type="submit"value="ランダムに問題を開始する" >
           </form>
         </li>

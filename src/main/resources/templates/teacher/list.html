@@ -53,53 +53,29 @@
         <!-- Sidebar -->
       </header>
       <br><br>
-      <form th:method="POST" th:action="@{/teacher/save}"  novalidate>
-        <div>
-            <label for="questionTitle">問題のタイトル：</label>
-            <input type="text" th:field="${question.questionTitle}">
-        </div><br>
-        <div>
-            <label for="questionText">問題の本文：</label>
-            <textarea name="questionText" th:field="${question.questionText}"></textarea>
-        </div><br>
-        <div>
-            <label for="choiceText1">問題の選択肢①：</label>
-            <input type="text" th:field="${question.choiceText1}">
-        </div><br>
-        <div>
-            <label for="choiceText2">問題の選択肢②：</label>
-            <input type="text" th:field="${question.choiceText2}">
-        </div><br>
-        <div>
-            <label for="choiceText3">問題の選択肢③：</label>
-            <input type="text" th:field="${question.choiceText3}">
-        </div><br>
-        <div>
-            <label for="choiceText4">問題の選択肢④：</label>
-            <input type="text" th:field="${question.choiceText4}">
-        </div><br>
-        <div>
-        <div>
-            <label for="correct">問題の正誤①：</label>
-            <input type="checkbox" th:field="${question.correct1}">
-            <br>
-            <label for="correct">問題の正誤②：</label>
-            <input type="checkbox" th:field="${question.correct2}">
-            <br>
-            <label for="correct">問題の正誤③：</label>
-            <input type="checkbox" th:field="${question.correct3}">
-            <br>
-            <label for="correct">問題の正誤④：</label>
-            <input type="checkbox" th:field="${question.correct4}">
-        </div><br>
+      <h3>質問一覧</h3>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>質問のタイトル</th>
+                  <th>質問の詳細</th>
+                  <th>質問の編集</th>
+                  <th>質問の削除</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="l : ${list}">
+                  <td>[[${l.id}]]</td>
+                  <td>[[${l.questionTitle}]]</td>
+                  <td><a th:href="@{/}">詳細</a></td>
+                  <td><a th:href="@{/}">編集</a></td>
+                  <td><a th:href="@{/}">削除</a></td>
+              </tr>
+          </tbody>
+      </table>
 
-        <div>
-            <label for="explanation">問題の解説：</label>
-            <textarea name="explanation" th:field="${question.explanation}"></textarea>
-        </div><br>
-        <input type="submit" value="save">
 
-      </form>
     </div>
   </th:block>
   <!--Main layout-->
