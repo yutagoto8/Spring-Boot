@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <!-- <th:block th:insert="common/base :: header"></th:block> -->
+  <th:block th:fragment="header">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <title>Document</title>
+  </th:block>
+</head>
+
+<body>
+  <th:block th:fragment="sidebar">
+    <!--Main Navigation-->
+    <div class="container">
+      <header>
+        <!-- Sidebar -->
+
+        <h1 class="bg-primary col-12 text-center">test</h1>
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+          <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                  class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
+            </div>
+          </div>
+        </nav>
+        <!-- Sidebar -->
+      </header>
+      <br><br>
+      <!-- Questionの出題形式の表示 -->
+      <h3 th:unless="${answer}" th:text="${question.questionTitle}"></h3>
+      <br>
+      <div th:unless="${answer}">
+      <div th:text="${question.questionText}"></div>
+      <br>
+      <form th:method="patch" th:action="@{/student/question/{id}(id=*{id})}" novalidate>
+        <ul th:each="choice : ${question.choices}" class="list-unstyled">
+            <li>
+                <button type="submit" th:text="${choice.choiceText}" name="choice" th:value="${choice.id}"></button>
+            </li>
+        </ul>
+      </form>
+      </div>
+      <!--Main Navigation-->
+      <br><br>
+      <div th:if="${correct}" class=""><i class="fas fa-thumbs-up"></i>正解！</div>
+      <div th:if="${answer}" th:unless="${correct}" class=""><i class="fas fa-ban"></i>不正解</div>
+      <br><br>
+      <div th:if=${answer}>
+      <ul>
+        <!-- <li th:if="${answer}">正解：[[${choiceText}]]</li><br> -->
+        <li th:if="${answer}">解説：[[${question.explanation}]]</li>
+      </ul>
+      <br>
+      <div th:if=${answer}>
+        <a th:href="@{/student/home}">ホーム</a>|
+        <a th:href="@{/student/question/{id}(id=*{id})}">次の問題へ</a>
+      </div>
+      </div>
+
+      
+    </div>
+  </th:block>
+  <!--Main layout-->
+  <main style="margin-top: 58px;">
+    <div class="container pt-4"></div>
+  </main>
+  <!--Main layout-->
+  </div>
+
+
+</body>
+
+</html>
