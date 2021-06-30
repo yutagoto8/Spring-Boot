@@ -3,19 +3,15 @@ package jp.co.cybermissions.itspj.java.learningwebapplication.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.ChoiceRepository;
+import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.LoginUserRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.QusetionRepository;
-import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.StudentRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.models.Choice;
-import jp.co.cybermissions.itspj.java.learningwebapplication.models.Question;
+import jp.co.cybermissions.itspj.java.learningwebapplication.models.LoginUser;
 import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/student")
@@ -23,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StudentController {
 
-    private final StudentRepository sRepository;
+    private final LoginUserRepository lRepository;
     
     private final QusetionRepository qRepository;
 
@@ -31,8 +27,8 @@ public class StudentController {
 
 
     @GetMapping("/home")
-    public String studentHome(Model model) {
-        model.addAttribute("student", sRepository.findAll());
+    public String studentHome(Model model, LoginUser user) {
+        model.addAttribute("student",lRepository.findAll());
         return "student/home";
     }
 
@@ -52,6 +48,12 @@ public class StudentController {
         model.addAttribute("correct",ch.isCorrect());
         return "student/question";  
 
+    }
+
+    @GetMapping("/list")
+    public String list(Model model) {
+        model.addAttribute("list", qRepository.findAll());
+        return "student/list";
     }
 
 }

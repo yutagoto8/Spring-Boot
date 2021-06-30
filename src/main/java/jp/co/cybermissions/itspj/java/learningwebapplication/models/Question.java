@@ -33,7 +33,7 @@ public class Question {
     @OneToMany(mappedBy = "question")
     private List<Choice> choices;
 
-    @OneToMany(mappedBy = "question")
-    private List<Teacher> teachers;
+    // @OneToMany(mappedBy = "question")
+    // private List<LoginUser> loginUsers;
 
 }

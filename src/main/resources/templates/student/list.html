@@ -53,38 +53,25 @@
         <!-- Sidebar -->
       </header>
       <br><br>
-      <!-- Questionの出題形式の表示 -->
-      <h3 th:unless="${answer}" th:text="${question.questionTitle}"></h3>
-      <br>
-      <div th:unless="${answer}">
-      <div th:text="${question.questionText}"></div>
-      <br>
-      <form th:method="patch" th:action="@{/student/question/{id}(id=*{id})}" novalidate>
-        <ul th:each="choice : ${question.choices}" class="list-unstyled">
-            <li>
-                <button type="submit" th:text="${choice.choiceText}" name="choice" th:value="${choice.id}"></button>
-            </li>
-        </ul>
-      </form>
-      </div>
-      <!--Main Navigation-->
-      <br><br>
-      <div th:if="${correct}" class=""><i class="fas fa-thumbs-up"></i>正解！</div>
-      <div th:if="${answer}" th:unless="${correct}" class=""><i class="fas fa-ban"></i>不正解</div>
-      <br><br>
-      <div th:if=${answer}>
-      <ul>
-        <!-- <li th:if="${answer}">正解：[[${choiceText}]]</li><br> -->
-        <li th:if="${answer}">解説：[[${question.explanation}]]</li>
-      </ul>
-      <br>
-      <div th:if=${answer}>
-        <a th:href="@{/student/home}">ホーム</a>|
-        <a th:href="@{/student/list}">問題一覧に戻る</a>
-      </div>
-      </div>
+      <h3>質問一覧</h3>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>質問のタイトル</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="l : ${list}">
+                  <td>[[${l.id}]]</td>
+                  <td>[[${l.questionTitle}]]</td>
+                  <td><a th:href="@{/student/question/{id}(id=${l.id})}">問題を解く</a></td>
+              </tr>
+          </tbody>
+      </table>
 
-      
+
     </div>
   </th:block>
   <!--Main layout-->

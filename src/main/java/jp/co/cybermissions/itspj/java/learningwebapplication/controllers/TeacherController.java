@@ -1,18 +1,17 @@
 package jp.co.cybermissions.itspj.java.learningwebapplication.controllers;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.ChoiceRepository;
+import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.LoginUserRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.QusetionRepository;
-import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.TeacherRepository;
 import jp.co.cybermissions.itspj.java.learningwebapplication.models.Choice;
 import jp.co.cybermissions.itspj.java.learningwebapplication.models.Form;
 import jp.co.cybermissions.itspj.java.learningwebapplication.models.Question;
@@ -23,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TeacherController {
 
-    private final TeacherRepository tRepository;
+    private final LoginUserRepository lRepository;
 
     // private final CategoryRepository categoryRepository;
 
@@ -32,8 +31,8 @@ public class TeacherController {
     private final ChoiceRepository choiceRepository;
 
     @GetMapping("/home")
-    public String home(Model model) {
-        model.addAttribute("teacher", tRepository.findAll());
+    public String teacherHome(Model model) {
+        model.addAttribute("teacher", lRepository.findAll());
         return "teacher/home";
     }
 
@@ -100,5 +99,13 @@ public class TeacherController {
         return "teacher/list";
 
     }
-    
+
+    @GetMapping("/question/{id}")
+    public String show(@PathVariable int id, Model model) {
+        model.addAttribute("question", qusetionRepository.findById(id).get());
+        return "teacher/question";
+    }
+
+
+
 }

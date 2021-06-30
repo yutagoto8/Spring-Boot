@@ -53,14 +53,19 @@
         <!-- Sidebar -->
       </header>
       <br><br>
-      <h1 th:each="t : ${teacher}">[[${t.name}]]さんようこそ</h1>
+      <h1 th:each="t : ${teacher}">[[${t.username}]]さんようこそ</h1>
       <br><br>
       <!-- Questionの出題形式の表示 -->
       <ul> 
         <!-- <li th:href="@{/student/question/{id}(id=${question.id})}">ランダムな出題</li> -->
         <li><a th:href="@{/teacher/new}">質問の作成</a></li>
+        <li><a th:href="@{/teacher/list}">質問一覧</a></li>
         <!-- <li><a th:href="@{/teacher/newcat}">カテゴリーの作成</a></li> -->
       </ul>
+      <br>
+      <div>
+        <a th:href="@{/logout}">ログアウト</a>
+      </div>
       <!--Main Navigation-->
       
     </div>

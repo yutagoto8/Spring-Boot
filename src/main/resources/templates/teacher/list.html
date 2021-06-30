@@ -68,7 +68,7 @@
               <tr th:each="l : ${list}">
                   <td>[[${l.id}]]</td>
                   <td>[[${l.questionTitle}]]</td>
-                  <td><a th:href="@{/}">詳細</a></td>
+                  <td><a th:href="@{/teacher/question/{id}(id=${l.id})}">詳細</a></td>
                   <td><a th:href="@{/}">編集</a></td>
                   <td><a th:href="@{/}">削除</a></td>
               </tr>

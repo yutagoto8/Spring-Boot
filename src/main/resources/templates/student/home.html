@@ -53,17 +53,22 @@
         <!-- Sidebar -->
       </header>
       <br><br>
-      <h1 th:each="s : ${student}">[[${s.name}]]さんようこそ</h1>
+      <h1 th:each="s : ${student}">[[${s.username}]]さんようこそ</h1>
       <br><br>
       <!-- Questionの出題形式の表示 -->
       <ul> 
         <!-- <li th:href="@{/student/question/{id}(id=${question.id})}">ランダムな出題</li> -->
         <!-- <li><a th:href="@{/student/category}">出題分野を選択して出題</a></li> -->
         <li>
-          <form th:method="POST" th:action="@{/student/question}">
+          <a th:href="@{/student/list}">問題一覧</a>
+          <!-- <form th:method="POST" th:action="@{/student/question}">
             <input type="submit"value="ランダムに問題を開始する" >
-          </form>
+          </form> -->
         </li>
+        <br>
+        <div>
+          <a th:href="@{/logout}">ログアウト</a>
+        </div>
       </ul>
       <!--Main Navigation-->
       
