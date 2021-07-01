@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jp.co.cybermissions.itspj.java.learningwebapplication.Repository.ChoiceRepository;
@@ -32,6 +33,12 @@ public class StudentController {
         return "student/home";
     }
 
+    @PostMapping("/home")
+    public String randamQuestion(Model model){
+        model.addAttribute("nextId", qRepository.ran());
+        return "student/home";
+    }
+
     @GetMapping("/question/{id}")
     public String question(@PathVariable int id,Model model) {
         model.addAttribute("question", qRepository.findById(id).get());
@@ -46,6 +53,9 @@ public class StudentController {
         Choice ch =  choiceRepository.findById(choiceId).get();
 
         model.addAttribute("correct",ch.isCorrect());
+
+        model.addAttribute("nextId", qRepository.ran());
+
         return "student/question";  
 
     }
@@ -55,5 +65,7 @@ public class StudentController {
         model.addAttribute("list", qRepository.findAll());
         return "student/list";
     }
+
+    
 
 }

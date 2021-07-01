@@ -18,40 +18,6 @@
   <th:block th:fragment="sidebar">
     <!--Main Navigation-->
     <div class="container">
-      <header>
-        <!-- Sidebar -->
-
-        <h1 class="bg-primary col-12 text-center">test</h1>
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-          <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-                <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                  class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
-            </div>
-          </div>
-        </nav>
-        <!-- Sidebar -->
-      </header>
       <br><br>
       <h3>質問一覧</h3>
       <table class="table">
@@ -60,8 +26,8 @@
                   <th>Id</th>
                   <th>質問のタイトル</th>
                   <th>質問の詳細</th>
-                  <th>質問の編集</th>
-                  <th>質問の削除</th>
+                  <!-- <th>質問の編集</th>
+                  <th>質問の削除</th> -->
               </tr>
           </thead>
           <tbody>
@@ -69,8 +35,8 @@
                   <td>[[${l.id}]]</td>
                   <td>[[${l.questionTitle}]]</td>
                   <td><a th:href="@{/teacher/question/{id}(id=${l.id})}">詳細</a></td>
-                  <td><a th:href="@{/}">編集</a></td>
-                  <td><a th:href="@{/}">削除</a></td>
+                  <!-- <td><a th:href="@{/teacher/question/{id}/edit(id=${l.id})}">編集</a></td>
+                  <td><a th:href="@{/}">削除</a></td> -->
               </tr>
           </tbody>
       </table>

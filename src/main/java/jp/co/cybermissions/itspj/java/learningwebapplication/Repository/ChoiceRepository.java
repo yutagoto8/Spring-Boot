@@ -7,5 +7,6 @@ import jp.co.cybermissions.itspj.java.learningwebapplication.models.Choice;
 
 @Repository
 public interface ChoiceRepository extends JpaRepository<Choice,Integer>{
+    
 
 }

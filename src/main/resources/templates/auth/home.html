@@ -4,19 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <title>Document</title>
   <title>会員専用ページ</title>
 </head>
 
 <body>
   <h1>ようこそ</h1>
-  <!-- ユーザIDとEMail -->
   <br>
-  <div th:if="${teacher}">
+  <div sec:authorize="hasRole('TEACHER')">
     <a th:href="@{/teacher/home}">教員ページへ</a>
   </div>
-  <div th:unless="${teacher}">
-    <a th:href="@{/student/home}">生徒ページへ</a>
+  <div th:unless="${#authorization.expression('hasRole(''TEACHER'')')}">
+    <form th:method="POST" th:action="@{/student/home}">
+      <input type="submit" th:value="生徒ページへ">
+    </form>
   </div>
   <br>
   <div>

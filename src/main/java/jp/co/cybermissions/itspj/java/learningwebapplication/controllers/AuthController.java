@@ -20,6 +20,7 @@ public class AuthController {
     
     private final BCryptPasswordEncoder passwordEncoder;
     private final LoginUserRepository userRep;
+    
 
     @GetMapping("/login")
     public String login() {
@@ -38,10 +39,6 @@ public class AuthController {
 
     @GetMapping("/home")
     public String userHome(LoginUser user, Model model) {
-        if (user.isTeacher()) {
-            model.addAttribute("teacher");
-            return "auth/home";
-        }
         return "auth/home";
     }
 

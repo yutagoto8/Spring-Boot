@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //h2コンソール用,本番で削除
         .antMatchers("/h2-console/**").permitAll()
         .antMatchers("/teacher/**").hasRole(Role.TEACHER.name())
-        .antMatchers("/student/**").hasRole(Role.STUDENT.name())
+        // .antMatchers("/student/**").hasRole(Role.STUDENT.name())
         .anyRequest().authenticated().and()
 
         .formLogin()
@@ -59,8 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //teacherとstudentで今は分けてるため改訂必須
         .defaultSuccessUrl("/home").and()
         .logout()
-        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-        .logoutSuccessUrl("/").and();
+        // .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+        .logoutSuccessUrl("/");
 
         //下記はh2-console用、本番では消す
         http.csrf().disable();

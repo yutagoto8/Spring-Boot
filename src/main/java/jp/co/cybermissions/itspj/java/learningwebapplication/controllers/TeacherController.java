@@ -1,10 +1,13 @@
 package jp.co.cybermissions.itspj.java.learningwebapplication.controllers;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -105,6 +108,52 @@ public class TeacherController {
         model.addAttribute("question", qusetionRepository.findById(id).get());
         return "teacher/question";
     }
+
+    @GetMapping("/question/{id}/edit")
+    public String edit(@PathVariable int id,Model model) {
+        Question q = qusetionRepository.findById(id).get();
+        model.addAttribute("question", q);
+        return "teacher/edit";
+    }
+
+    // @PatchMapping("/question/{id}/edit")
+    // public String update(@PathVariable int id, @ModelAttribute Form form,@ModelAttribute Question question,@ModelAttribute Choice choice, Model model) {
+    //     question.setId(id);
+    //     Question q = new Question();
+    //     q.setQuestionTitle(form.getQuestionTitle());
+    //     q.setQuestionText(form.getQuestionText());
+    //     q.setExplanation(form.getExplanation());
+    //     q.setChoices(form.getChoices());
+
+    //     Question newQuestion = qusetionRepository.save(q);
+        
+    //     choice.setQuestion(question);
+    //     Choice cho = new Choice();
+    //     cho.setChoiceText(form.getChoiceText1());
+    //     cho.setCorrect(form.isCorrect1());
+    //     cho.setQuestion(newQuestion);
+    //     choiceRepository.save(cho);
+
+    //     cho = new Choice();
+    //     cho.setChoiceText(form.getChoiceText2());
+    //     cho.setCorrect(form.isCorrect2());
+    //     cho.setQuestion(newQuestion);
+    //     choiceRepository.save(cho);
+
+    //     cho = new Choice();
+    //     cho.setChoiceText(form.getChoiceText3());
+    //     cho.setCorrect(form.isCorrect3());
+    //     cho.setQuestion(newQuestion);
+    //     choiceRepository.save(cho);
+
+    //     cho = new Choice();
+    //     cho.setChoiceText(form.getChoiceText4());
+    //     cho.setCorrect(form.isCorrect4());
+    //     cho.setQuestion(newQuestion);
+    //     choiceRepository.save(cho);
+        
+    //     return "teacher/home";
+    // }
 
 
 
