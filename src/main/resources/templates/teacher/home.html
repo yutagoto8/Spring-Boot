@@ -21,12 +21,12 @@
       <h1 class="text-white">教員ページ</h1>
       <br><br>
       <!-- Questionの出題形式の表示 -->
-      <ul> 
+      <div> 
         <!-- <li th:href="@{/student/question/{id}(id=${question.id})}">ランダムな出題</li> -->
-        <li class="list-unstyled"><a class="btn btn-primary" th:href="@{/teacher/new}">質問の作成</a></li><br>
-        <li class="list-unstyled"><a class="btn btn-primary" th:href="@{/teacher/list}">質問一覧</a></li>
+        <a class="btn btn-primary" th:href="@{/teacher/new}">質問の作成</a>  
+        <a class="btn btn-primary" th:href="@{/teacher/list}">質問一覧</a>
         <!-- <li><a th:href="@{/teacher/newcat}">カテゴリーの作成</a></li> -->
-      </ul>
+      </div>
       <br>
       <div>
         <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>

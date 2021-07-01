@@ -50,9 +50,9 @@
 
     </div>
     <br>
+    <form th:method="POST" th:action="@{/student/home}"><input type="submit" th:value="ホームに戻る"
+      class="btn btn-primary"></form><br>
     <div th:if=${answer}>
-      <form th:method="POST" th:action="@{/student/home}"><input type="submit" th:value="ホームに戻る"
-          class="btn btn-primary"></form><br>
       <a class="btn btn-primary" th:href="@{/student/list}">問題一覧に戻る</a><br><br>
       <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}">次へ</a>
     </div>

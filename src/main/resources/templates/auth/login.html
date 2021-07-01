@@ -17,7 +17,7 @@
   <div class="container">
   <h2 class="text-white">ログイン</h2><br><br>
   <div th:if="${param.error}">
-    <small class="text-white">ユーザ名またはパスワードが正しくありません</small>
+    <small class="text-danger"><i class="fas fa-exclamation-triangle"></i>ユーザ名またはパスワードが正しくありません</small>
   </div>
   <form th:action="@{/login}" th:method="post" novalidate>
     <div class="form-group">
