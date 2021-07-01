@@ -19,19 +19,20 @@
     <!--Main Navigation-->
     <div class="container">
       <br><br>
-      <h1>ようこそ</h1>
+      <h2>生徒ページ</h2>
       <br><br>
       <!-- Questionの出題形式の表示 -->
       <ul> 
         <li>
-          <a th:href="@{/student/list}">問題一覧</a>
+          <a class="btn btn-primary" th:href="@{/student/list}">問題一覧</a>
         </li>
+        <br>
         <li>
-          <a th:href="@{/student/question/{id}(id=${nextId})}">ランダムに出題</a>
+          <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}">ランダムに出題</a>
         </li>
         <br>
         <div>
-          <a th:href="@{/logout}">ログアウト</a>
+          <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
         </div>
       </ul>
       <!--Main Navigation-->

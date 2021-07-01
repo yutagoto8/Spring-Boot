@@ -13,19 +13,21 @@
 </head>
 
 <body>
-  <h1>ようこそ</h1>
+  <div class="container">
+  <h1>ログインに成功しました</h1>
   <br>
   <div sec:authorize="hasRole('TEACHER')">
     <a th:href="@{/teacher/home}">教員ページへ</a>
   </div>
   <div th:unless="${#authorization.expression('hasRole(''TEACHER'')')}">
     <form th:method="POST" th:action="@{/student/home}">
-      <input type="submit" th:value="生徒ページへ">
+      <input class="btn btn-primary" type="submit" th:value="生徒ページへ">
     </form>
   </div>
   <br>
   <div>
-    <a th:href="@{/logout}">ログアウト</a>
+    <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
+  </div>
   </div>
 </body>
 
