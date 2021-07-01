@@ -10,24 +10,23 @@
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <title>Document</title>
+    <title>Student</title>
+    <link rel="stylesheet" href="/css/student.css">
   </th:block>
 </head>
 
 <body>
-  <th:block th:fragment="sidebar">
-    <!--Main Navigation-->
     <div class="container">
       <br><br>
-      <h2>生徒ページ</h2>
+      <h2 class="text-white">生徒ページ</h2>
       <br><br>
       <!-- Questionの出題形式の表示 -->
-      <ul> 
-        <li>
+      <ul>
+        <li class="list-unstyled">
           <a class="btn btn-primary" th:href="@{/student/list}">問題一覧</a>
         </li>
         <br>
-        <li>
+        <li class="list-unstyled">
           <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}">ランダムに出題</a>
         </li>
         <br>
@@ -36,16 +35,8 @@
         </div>
       </ul>
       <!--Main Navigation-->
-      
-    </div>
-  </th:block>
-  <!--Main layout-->
-  <main style="margin-top: 58px;">
-    <div class="container pt-4"></div>
-  </main>
-  <!--Main layout-->
-  </div>
 
+    </div>
 
 </body>
 

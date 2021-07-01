@@ -8,13 +8,13 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <title>Document</title>
+  <link rel="stylesheet" href="/css/home.css">
   <title>会員専用ページ</title>
 </head>
 
 <body>
   <div class="container">
-  <h1>ログインに成功しました</h1>
+  <h1 class="text-white">ログインに成功しました</h1>
   <br>
   <div sec:authorize="hasRole('TEACHER')">
     <a th:href="@{/teacher/home}">教員ページへ</a>

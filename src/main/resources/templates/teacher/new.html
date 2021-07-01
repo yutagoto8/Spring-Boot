@@ -10,72 +10,66 @@
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <title>Document</title>
+    <title>Student</title>
+    <link rel="stylesheet" href="/css/teacher.css">
   </th:block>
 </head>
 
 <body>
-  <th:block th:fragment="sidebar">
-    <!--Main Navigation-->
-    <div class="container">
-      <br><br>
-      <form th:method="POST" th:action="@{/teacher/save}"  novalidate>
-        <div class="form-group">
-            <label for="questionTitle">問題のタイトル：</label>
-            <input class="form-control" type="text" th:field="${question.questionTitle}">
-        </div><br>
-        <div class="form-group">
-            <label for="questionText">問題の本文：</label>
-            <textarea class="form-control" name="questionText" th:field="${question.questionText}"></textarea>
-        </div><br>
-        <div class="form-group">
-            <label for="choiceText1">問題の選択肢①：</label>
-            <input class="form-group col-md-6" type="text" th:field="${question.choiceText1}">
-        </div>
-        <div class="form-group">
-          <label for="correct">問題の正誤①：</label>
-          <input type="checkbox" th:field="${question.correct1}">
-        </div><br>
-        <div class="form-group">
-            <label for="choiceText2">問題の選択肢②：</label>
-            <input class="form-group col-md-6" type="text" th:field="${question.choiceText2}">
-        </div>
-        <div class="form-group">
-          <label for="correct">問題の正誤②：</label>
-          <input type="checkbox" th:field="${question.correct2}">
-        </div><br>
-        <div class="form-group">
-            <label for="choiceText3">問題の選択肢③：</label>
-            <input class="form-group col-md-6" type="text" th:field="${question.choiceText3}">
-        </div>
-        <div class="form-group">
-          <label for="correct">問題の正誤③：</label>
-          <input type="checkbox" th:field="${question.correct3}">
-        </div><br>
-        <div class="form-group">
-            <label for="choiceText4">問題の選択肢④：</label>
-            <input class="form-group col-md-6" type="text" th:field="${question.choiceText4}">
-        </div>
-        <div class="form-group">
-          <label for="correct">問題の正誤④：</label>
-          <input type="checkbox" th:field="${question.correct4}">
-        </div><br>
-        <div class="form-group">
-            <label for="explanation">問題の解説：</label>
-            <textarea class="form-control" name="explanation" th:field="${question.explanation}"></textarea>
-        </div><br>
-        <input type="submit" value="save">
-      </form>
-    </div>
-  </th:block>
-  <!--Main layout-->
-  <main style="margin-top: 58px;">
-    <div class="container pt-4"></div>
-  </main>
-  <!--Main layout-->
+  <div class="container">
+    <br><br>
+    <h3 class="text-white">問題の作成</h3>
+    <br><br>
+    <form th:method="POST" th:action="@{/teacher/save}" novalidate>
+      <div class="form-group">
+        <label for="questionTitle" class="text-white">問題のタイトル：</label>
+        <input class="form-control" type="text" th:field="${question.questionTitle}">
+      </div><br>
+      <div class="form-group">
+        <label for="questionText" class="text-white">問題の本文：</label>
+        <textarea class="form-control" name="questionText" th:field="${question.questionText}"></textarea>
+      </div><br>
+      <div class="form-group">
+        <label for="choiceText1" class="text-white">問題の選択肢①：</label>
+        <input class="form-group col-md-6" type="text" th:field="${question.choiceText1}">
+      </div>
+      <div class="form-group">
+        <label for="correct" class="text-white">問題の正誤①：</label>
+        <input type="checkbox" th:field="${question.correct1}">
+      </div><br>
+      <div class="form-group">
+        <label for="choiceText2" class="text-white">問題の選択肢②：</label>
+        <input class="form-group col-md-6" type="text" th:field="${question.choiceText2}">
+      </div>
+      <div class="form-group">
+        <label for="correct" class="text-white">問題の正誤②：</label>
+        <input type="checkbox" th:field="${question.correct2}">
+      </div><br>
+      <div class="form-group">
+        <label for="choiceText3" class="text-white">問題の選択肢③：</label>
+        <input class="form-group col-md-6" type="text" th:field="${question.choiceText3}">
+      </div>
+      <div class="form-group">
+        <label for="correct" class="text-white">問題の正誤③：</label>
+        <input type="checkbox" th:field="${question.correct3}">
+      </div><br>
+      <div class="form-group">
+        <label for="choiceText4" class="text-white">問題の選択肢④：</label>
+        <input class="form-group col-md-6" type="text" th:field="${question.choiceText4}">
+      </div>
+      <div class="form-group">
+        <label for="correct" class="text-white">問題の正誤④：</label>
+        <input type="checkbox" th:field="${question.correct4}">
+      </div><br>
+      <div class="form-group">
+        <label for="explanation" class="text-white">問題の解説：</label>
+        <textarea class="form-control" name="explanation" th:field="${question.explanation}"></textarea>
+      </div><br>
+      <input class="btn btn-primary" type="submit" value="save">
+    </form>
+    <br>
+    <a class="btn btn-primary" th:href="@{/teacher/home}">ホームに戻る</a>
   </div>
-
-
 </body>
 
 </html>

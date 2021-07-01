@@ -43,4 +43,6 @@ public class LoginUser {
     // @ManyToOne
     // @JoinColumn(name = "question_id")
     // private Question question;
+
+
 }

@@ -10,40 +10,30 @@
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <title>Document</title>
+    <title>Student</title>
+    <link rel="stylesheet" href="/css/teacher.css">
   </th:block>
 </head>
 
 <body>
-  <th:block th:fragment="sidebar">
-    <!--Main Navigation-->
     <div class="container">
       <br><br>
-      <h1>先生ページ</h1>
+      <h1 class="text-white">教員ページ</h1>
       <br><br>
       <!-- Questionの出題形式の表示 -->
       <ul> 
         <!-- <li th:href="@{/student/question/{id}(id=${question.id})}">ランダムな出題</li> -->
-        <li><a th:href="@{/teacher/new}">質問の作成</a></li>
-        <li><a th:href="@{/teacher/list}">質問一覧</a></li>
+        <li class="list-unstyled"><a class="btn btn-primary" th:href="@{/teacher/new}">質問の作成</a></li><br>
+        <li class="list-unstyled"><a class="btn btn-primary" th:href="@{/teacher/list}">質問一覧</a></li>
         <!-- <li><a th:href="@{/teacher/newcat}">カテゴリーの作成</a></li> -->
       </ul>
       <br>
       <div>
-        <a th:href="@{/logout}">ログアウト</a>
+        <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
       </div>
       <!--Main Navigation-->
       
     </div>
-  </th:block>
-  <!--Main layout-->
-  <main style="margin-top: 58px;">
-    <div class="container pt-4"></div>
-  </main>
-  <!--Main layout-->
-  </div>
-
-
 </body>
 
 </html>

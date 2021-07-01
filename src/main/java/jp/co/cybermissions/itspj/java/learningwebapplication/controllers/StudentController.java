@@ -51,9 +51,7 @@ public class StudentController {
         model.addAttribute("question", qRepository.findById(id).get());
         model.addAttribute("answer" , qRepository.findById(id).get());
         Choice ch =  choiceRepository.findById(choiceId).get();
-
         model.addAttribute("correct",ch.isCorrect());
-
         model.addAttribute("nextId", qRepository.ran());
 
         return "student/question";  
@@ -65,7 +63,5 @@ public class StudentController {
         model.addAttribute("list", qRepository.findAll());
         return "student/list";
     }
-
-    
 
 }
