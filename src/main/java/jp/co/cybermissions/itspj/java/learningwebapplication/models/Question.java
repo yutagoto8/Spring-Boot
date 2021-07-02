@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -22,11 +23,14 @@ public class Question {
     private int id;
 
     @Size(max = 100)
+    @NotBlank
     private String questionTitle;
 
+    @NotBlank
     @Size(max = 500)
     private String questionText;
 
+    @NotBlank
     @Size(max = 1000)
     private String explanation;
 

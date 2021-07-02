@@ -2,6 +2,7 @@ package jp.co.cybermissions.itspj.java.learningwebapplication.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,8 +25,6 @@ public class TeacherController {
 
     private final LoginUserRepository lRepository;
 
-    // private final CategoryRepository categoryRepository;
-
     private final QusetionRepository qusetionRepository;
 
     private final ChoiceRepository choiceRepository;
@@ -36,20 +35,6 @@ public class TeacherController {
         return "teacher/home";
     }
 
-    // @GetMapping("/newcat")
-    // public String newCategory(@ModelAttribute Category category, Model model) {
-    //     model.addAttribute("question", category);
-    //     return "teacher/newcat";
-    // }
-
-    // @PostMapping("/savecat")
-    // public String saveCategory(@ModelAttribute Category category,Model model) {
-    //     Category ca =new Category();
-    //     ca.setCategoryName(category.getCategoryName());
-    //     categoryRepository.save(category);
-    //     return "teacher/home";
-    // }
-
     @GetMapping("/new")
     public String newQusetion(@ModelAttribute Form form, Model model) {
         model.addAttribute("question", form);
@@ -57,7 +42,12 @@ public class TeacherController {
     }
 
     @PostMapping("/save")
-    public String save(@Validated @ModelAttribute Form form, Model model) {
+    public String save(@Validated @ModelAttribute("question") Form form,BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            // model.addAttribute("question", form);
+            return "teacher/new";
+        }
+
         Question q = new Question();
         q.setQuestionTitle(form.getQuestionTitle());
         q.setQuestionText(form.getQuestionText());

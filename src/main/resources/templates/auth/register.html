@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container"><br><br><br><br><br>
   <h2 class="text-white">ユーザー登録</h2><br>
 
   <form th:action="@{/register}" th:method="post" th:object="${user}" novalidate>
@@ -38,7 +38,7 @@
     <div>
       <label for="teacher" class="text-white">教員：</label>
       <input type="checkbox" th:field="*{teacher}">
-    </div>
+    </div><br>
     <button type="submit" class="btn btn-primary">登録</button>
   </form>
 </div>

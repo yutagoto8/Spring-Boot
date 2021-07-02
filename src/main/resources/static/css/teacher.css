@@ -3,3 +3,16 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.main {
+    width: auto;
+    height: auto;
+    background: rgba(255, 255, 255, 0.3);
+    
+}
+
+.main2 {
+    width: auto;
+    height: auto;
+    background: rgba(255, 255, 255, 0.2);
+    
+}
