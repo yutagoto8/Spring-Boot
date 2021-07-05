@@ -14,18 +14,30 @@
     <link rel="stylesheet" href="/css/teacher.css">
     <script type="text/javascript" th:src="@{/js/checkbox.js}"></script>
     <script>src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
+    <link rel="stylesheet" href="/css/teacherheader.css">
   </th:block>
 </head>
 
 <body>
+  <header>
+    <h1>
+      <form th:method="GET" th:action="@{/teacher/home}">
+        <button type="submit" class="btn btn-lg text-white"><i class="fas fa-home"></i>教員ページ</button>
+      </form><br>
+    </h1>
+    <nav class="student-nav">
+      <ul class="hd list-unstyled">
+        <li class="hds list-unstyled"><a class="lin" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
+      </ul>
+    </nav>
+  </header>
   <div class="container">
-    <br><br>
+    <br><br><br><br>
     <h3 class="text-white">問題の作成</h3>
-    <br><br>
+    <br>
     <form th:action="@{/teacher/save}" th:method="post" th:object="${question}" class="main" novalidate>
       <div class="form-group">
         <label for="questionTitle" class="text-white bg-info">
-          
           問題のタイトル：
         </label>
         <input class="form-control col-md-6" type="text" th:errorclass="is-invalid" th:field="*{questionTitle}">

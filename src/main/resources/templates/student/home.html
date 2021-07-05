@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head>
-  <!-- <th:block th:insert="common/base :: header"></th:block> -->
-  <th:block th:fragment="header">
+<header>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
@@ -12,14 +10,26 @@
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <title>Student</title>
     <link rel="stylesheet" href="/css/student.css">
-  </th:block>
-</head>
+    <link rel="stylesheet" href="/css/studentheader.css">
+</header>
 
 <body>
+  <header>
+    <h1>
+      <form th:method="POST" th:action="@{/student/home}">
+        <button type="submit" class="btn btn-lg text-white"><i class="fas fa-home"></i>生徒ページ</button>
+      </form><br>
+    </h1>
+    <nav class="student-nav">
+      <ul class="hd list-unstyled">
+        <li class="hds list-unstyled"><a class="lin" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
+      </ul>
+    </nav>
+  </header>
     <div class="container">
-      <br><br>
+      <br><br><br><br><br>
       <h2 class="p-3 mb-2 bg-dark text-white">生徒ページ</h2>
-      <br><br><br><br>
+      <br><br>
       <!-- Questionの出題形式の表示 -->
       <div>
           <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}"><i class="fas fa-random"></i>ランダムに出題</a>

@@ -12,12 +12,25 @@
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <title>Teacher</title>
     <link rel="stylesheet" href="/css/teacher.css">
+    <link rel="stylesheet" href="/css/teacherheader.css">
   </th:block>
 </head>
 
 <body>
+  <header>
+    <h1>
+      <form th:method="GET" th:action="@{/teacher/home}">
+        <button type="submit" class="btn btn-lg text-white"><i class="fas fa-home"></i>教員ページ</button>
+      </form><br>
+    </h1>
+    <nav class="student-nav">
+      <ul class="hd list-unstyled">
+        <li class="hds list-unstyled"><a class="lin" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
+      </ul>
+    </nav>
+  </header>
     <div class="container">
-      <br><br>
+      <br><br><br><br>
       <h2 class="p-3 mb-2 bg-dark text-white">教員ページ</h2>
       <br><br>
       <!-- Questionの出題形式の表示 -->
