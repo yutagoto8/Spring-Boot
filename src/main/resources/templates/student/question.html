@@ -68,7 +68,7 @@
     </form><br>
     <div th:if=${answer}>
       <a class="btn btn-primary" th:href="@{/student/list}"><i class="fas fa-list"></i>問題一覧に戻る</a><br><br>
-      <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}"><i class="fas fa-pencil-alt"></i>次へ</a>
+      <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}"><i class="fas fa-arrow-circle-right"></i>次へ</a>
     </div>
   </div>
 </body>

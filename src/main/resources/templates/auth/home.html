@@ -14,20 +14,24 @@
 
 <body>
   <div class="container"><br><br><br><br><br>
-  <h1 class="text-white">ログインに成功しました</h1>
-  <br>
-  <div sec:authorize="hasRole('TEACHER')">
-    <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-chalkboard-teacher"></i>教員ページへ</a>
-  </div><br>
-  <div>
-    <form th:method="POST" th:action="@{/student/home}">
-      <button class="btn btn-primary" type="submit"><i class="fas fa-user-graduate"></i>生徒ページへ</button>
-    </form>
-  </div>
-  <br>
-  <div>
-    <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
-  </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-white">ログインに成功しました</h1>
+        <br>
+        <div sec:authorize="hasRole('TEACHER')">
+          <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-chalkboard-teacher"></i>教員ページへ</a>
+        </div><br>
+        <div>
+          <form th:method="POST" th:action="@{/student/home}">
+            <button class="btn btn-primary" type="submit"><i class="fas fa-user-graduate"></i>生徒ページへ</button>
+          </form>
+        </div>
+        <br>
+        <div>
+          <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
