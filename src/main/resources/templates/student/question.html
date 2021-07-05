@@ -56,7 +56,7 @@
     <div th:if="${answer}" class="p-3 mb-2 bg-success text-white">[[${question.explanation}]]</div>
     <br>
     <div th:if=${answer} th:unless="${correct}">
-      <a th:href="@{/student/question/{id}(id=${question.id})}"><i class="fas fa-redo-alt"></i>もう一度解きなおす</a>
+      <a class="lin" th:href="@{/student/question/{id}(id=${question.id})}"><i class="fas fa-redo-alt"></i>もう一度解きなおす</a>
     </div>
     <br>
     <div th:if=${answer}>
