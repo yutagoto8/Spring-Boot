@@ -22,8 +22,8 @@
       <br><br><br><br>
       <!-- Questionの出題形式の表示 -->
       <div>
-          <a class="btn btn-primary" th:href="@{/student/list}"><i class="fas fa-list"></i>問題一覧</a>
           <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}"><i class="fas fa-random"></i>ランダムに出題</a>
+          <a class="btn btn-primary" th:href="@{/student/list}"><i class="fas fa-list"></i>問題一覧</a>   
       </div><br>
       <div sec:authorize="hasRole('TEACHER')">
         <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-chalkboard-teacher"></i>教員ページへ</a>
