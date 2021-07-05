@@ -18,18 +18,26 @@
 <body>
     <div class="container">
       <br><br>
-      <h1 class="text-white">教員ページ</h1>
+      <h2 class="p-3 mb-2 bg-dark text-white">教員ページ</h2>
       <br><br>
       <!-- Questionの出題形式の表示 -->
+      <div th:if="${success}" class="alert alert-success">[[${success}]]</div>
+      <br><br>
       <div> 
         <!-- <li th:href="@{/student/question/{id}(id=${question.id})}">ランダムな出題</li> -->
-        <a class="btn btn-primary" th:href="@{/teacher/new}">質問の作成</a>  
-        <a class="btn btn-primary" th:href="@{/teacher/list}">質問一覧</a>
+        <a class="btn btn-primary" th:href="@{/teacher/new}"><i class="fas fa-pen"></i>質問の作成</a>  
+        <a class="btn btn-primary" th:href="@{/teacher/list}"><i class="fas fa-list"></i>質問一覧</a>
         <!-- <li><a th:href="@{/teacher/newcat}">カテゴリーの作成</a></li> -->
       </div>
       <br>
       <div>
-        <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
+        <form th:method="POST" th:action="@{/student/home}">
+          <button class="btn btn-primary" type="submit"><i class="fas fa-user-graduate"></i>生徒ページへ</button>
+        </form>
+      </div>
+      <br>
+      <div>
+        <a class="btn btn-primary" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
       </div>
       <!--Main Navigation-->
       

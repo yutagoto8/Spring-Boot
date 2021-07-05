@@ -31,13 +31,14 @@
           <tr th:each="l : ${list}">
             <td class="text-white">[[${l.id}]]</td>
             <td class="text-white">[[${l.questionTitle}]]</td>
-            <td><a th:href="@{/student/question/{id}(id=${l.id})}" class="texr-white">問題を解く</a></td>
+            <td><a th:href="@{/student/question/{id}(id=${l.id})}" class="texr-white btn btn-primary"><i class="fas fa-pencil-alt"></i>問題を解く</a></td>
           </tr>
         </tbody>
       </table>
       <br><br>
-      <form th:method="POST" th:action="@{/student/home}"><input type="submit" th:value="ホームに戻る"
-          class="btn btn-primary"></form><br>
+      <form th:method="POST" th:action="@{/student/home}">
+        <button type="submit" class="btn btn-primary"><i class="fas fa-home"></i>ホームに戻る</button>
+      </form><br>
 
     </div>
 </body>

@@ -17,11 +17,11 @@
   <h1 class="text-white">ログインに成功しました</h1>
   <br>
   <div sec:authorize="hasRole('TEACHER')">
-    <a class="btn btn-primary" th:href="@{/teacher/home}">教員ページへ</a>
-  </div>
-  <div th:unless="${#authorization.expression('hasRole(''TEACHER'')')}">
+    <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-chalkboard-teacher"></i>教員ページへ</a>
+  </div><br>
+  <div>
     <form th:method="POST" th:action="@{/student/home}">
-      <input class="btn btn-primary" type="submit" th:value="生徒ページへ">
+      <button class="btn btn-primary" type="submit"><i class="fas fa-user-graduate"></i>生徒ページへ</button>
     </form>
   </div>
   <br>

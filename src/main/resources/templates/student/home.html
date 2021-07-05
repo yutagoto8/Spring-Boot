@@ -19,21 +19,20 @@
     <div class="container">
       <br><br>
       <h2 class="p-3 mb-2 bg-dark text-white">生徒ページ</h2>
-      <br><br>
+      <br><br><br><br>
       <!-- Questionの出題形式の表示 -->
-      <ul>
-        <li class="list-unstyled">
-          <a class="btn btn-primary" th:href="@{/student/list}">問題一覧</a>
-        </li>
-        <br>
-        <li class="list-unstyled">
-          <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}">ランダムに出題</a>
-        </li>
-        <br>
+      <div>
+          <a class="btn btn-primary" th:href="@{/student/list}"><i class="fas fa-list"></i>問題一覧</a>
+          <a class="btn btn-primary" th:href="@{/student/question/{id}(id=${nextId})}"><i class="fas fa-random"></i>ランダムに出題</a>
+      </div><br>
+      <div sec:authorize="hasRole('TEACHER')">
+        <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-chalkboard-teacher"></i>教員ページへ</a>
+      </div>
+      <br>
         <div>
-          <a class="btn btn-primary" th:href="@{/logout}">ログアウト</a>
+          <a class="btn btn-primary" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
         </div>
-      </ul>
+    
       <!--Main Navigation-->
 
     </div>

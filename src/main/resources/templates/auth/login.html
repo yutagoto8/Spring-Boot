@@ -17,7 +17,7 @@
   <div class="container"><br><br><br><br><br>
   <h2 class="text-white ">ログイン</h2><br><br>
   <div th:if="${param.error}">
-    <small class="text-danger"><i class="fas fa-exclamation-triangle"></i>ユーザ名またはパスワードが正しくありません</small>
+    <small class="text-danger bg-warning"><i class="fas fa-exclamation-triangle"></i>ユーザ名またはパスワードが正しくありません</small>
   </div>
   <form th:action="@{/login}" th:method="post" novalidate>
     <div class="form-group">
@@ -28,10 +28,10 @@
       <label for="username" class="text-white">パスワード：</label>
       <input class="form-group col-md-4" type="password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">ログイン</button>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>ログイン</button>
   </form>
   <br>
-  <a th:href="@{/register}" class="btn btn-primary">新規登録へ</a>
+  <a th:href="@{/register}" class="btn btn-primary"><i class="fas fa-user-plus"></i>新規登録へ</a>
   </div>
 </body>
 

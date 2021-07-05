@@ -23,8 +23,8 @@
           <thead>
               <tr>
                   <th class="text-white">Id</th>
-                  <th class="text-white">質問のタイトル</th>
-                  <th class="text-white">質問の詳細</th>
+                  <th class="text-warning">質問のタイトル</th>
+                  <th class="text-primary">質問の詳細</th>
                   <!-- <th>質問の編集</th>
                   <th>質問の削除</th> -->
               </tr>
@@ -32,7 +32,7 @@
           <tbody>
               <tr th:each="l : ${list}">
                   <td class="text-white">[[${l.id}]]</td>
-                  <td class="text-white"> [[${l.questionTitle}]]</td>
+                  <td class="text-warning"> [[${l.questionTitle}]]</td>
                   <td class="text-white"><a th:href="@{/teacher/question/{id}(id=${l.id})}">詳細</a></td>
                   <!-- <td><a th:href="@{/teacher/question/{id}/edit(id=${l.id})}">編集</a></td>
                   <td><a th:href="@{/}">削除</a></td> -->
@@ -40,7 +40,7 @@
           </tbody>
       </table>
       <br><br>
-      <a class="btn btn-primary" th:href="@{/teacher/home}">ホームに戻る</a>
+      <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-home"></i>ホームに戻る</a>
     </div><br><br>
 </body>
 

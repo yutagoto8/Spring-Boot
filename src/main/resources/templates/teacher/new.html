@@ -12,7 +12,7 @@
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <title>Teacher</title>
     <link rel="stylesheet" href="/css/teacher.css">
-    <script type="text/javascript" th:src="@{/javascript/checkbox.js}"></script>
+    <script type="text/javascript" th:src="@{/js/checkbox.js}"></script>
     <script>src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
   </th:block>
 </head>
@@ -25,7 +25,7 @@
     <form th:action="@{/teacher/save}" th:method="post" th:object="${question}" class="main" novalidate>
       <div class="form-group">
         <label for="questionTitle" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題のタイトル：
         </label>
         <input class="form-control col-md-6" type="text" th:errorclass="is-invalid" th:field="*{questionTitle}">
@@ -33,7 +33,7 @@
       </div><br>
       <div class="form-group">
         <label for="questionText" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題の本文：
         </label>
         <textarea class="form-control col-md-8" rows="4" th:errorclass="is-invalid" th:field="*{questionText}"></textarea>
@@ -41,7 +41,7 @@
       </div><br>
       <div class="form-group">
         <label for="choiceText1" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題の選択肢①：
         </label>
         <input class="form-control col-md-6" type="text" th:errorclass="is-invalid" th:field="*{choiceText1}">
@@ -54,7 +54,7 @@
       </div><br>
       <div class="form-group">
         <label for="choiceText2" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題の選択肢②：
         </label>
         <input type="text" class="form-control  col-md-6" th:errorclass="is-invalid" th:field="*{choiceText2}">
@@ -67,7 +67,7 @@
       </div><br>
       <div class="form-group">
         <label for="choiceText3" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題の選択肢③：
         </label>
         <input type="text" class="form-control col-md-6" th:errorclass="is-invalid" th:field="*{choiceText3}">
@@ -79,7 +79,7 @@
       </div><br>
       <div class="form-group">
         <label for="choiceText4" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題の選択肢④：
         </label>
         <input type="text" class="form-control col-md-6" th:errorclass="is-invalid" th:field="*{choiceText4}">
@@ -91,16 +91,16 @@
       </div><br>
       <div class="form-group">
         <label for="explanation" class="text-white bg-info">
-          <span class="badge badge-danger">必須</span>
+          
           問題の解説：
         </label>
         <textarea class="form-control" rows="6" th:errorclass="is-invalid" th:field="*{explanation}"></textarea>
         <div class="invalid-feedback bg-warning" th:errors="*{explanation}"></div>
       </div><br>
-      <button class="btn btn-primary col-2 " type="button" id="btn1">保 存</button><br><br>
+      <button class="btn btn-primary col-2 " type="button" id="btn1"><i class="fas fa-save"></i>保 存</button><br><br>
     </form>
     <br>
-    <a class="btn btn-primary" th:href="@{/teacher/home}">ホームに戻る</a>
+    <a class="btn btn-primary" th:href="@{/teacher/home}"><i class="fas fa-home"></i>ホームに戻る</a>
   </div>
   <br>
   <br>
